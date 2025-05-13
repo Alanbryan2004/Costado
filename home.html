@@ -124,6 +124,17 @@
       const sidebar = document.getElementById('sidebar');
       sidebar.classList.toggle('active');
     }
+
+    // Fecha o menu quando clicar fora da barra lateral
+    document.addEventListener('click', function(event) {
+      const sidebar = document.getElementById('sidebar');
+      const menuButton = document.querySelector('.topbar button');
+      
+      // Se o clique for fora do menu e do botão de abrir/fechar, fecha o menu
+      if (!sidebar.contains(event.target) && event.target !== menuButton) {
+        sidebar.classList.remove('active');
+      }
+    });
   </script>
 </body>
 </html>

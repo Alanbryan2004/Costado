@@ -126,6 +126,7 @@
       width: 100%;
       position: relative;
       overflow: hidden;
+      background: linear-gradient(to right, #005aa7, #00c6fb);
     }
 
     .card-header {
@@ -174,19 +175,6 @@
 
     .decline-btn {
       background-color: red;
-    }
-
-    /* Adicionando um fundo que cubra as laterais */
-    .card:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(to right, #005aa7, #00c6fb);
-      z-index: -1;
-      border-radius: 10px;
     }
   </style>
 </head>

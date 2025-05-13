@@ -122,26 +122,32 @@
       padding: 15px;
       margin-bottom: 20px;
       box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+      max-width: 100%;
       width: 100%;
+      position: relative;
     }
 
     .card-header {
-      background-color: #004e92;
+      background: linear-gradient(to right, #004e92, #000428);
+      background-size: 100% 100%, cover;
+      background-position: left;
       color: white;
-      padding: 20px;
+      padding: 20px 10px 20px 40px;
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
       font-weight: bold;
       text-align: center;
-      margin-top: -15px; /* Ajusta o topo */
+      margin-top: -20px; /* Ajusta o topo */
     }
 
     .card-header.origem {
-      background-color: #004e92;
+      background: url('https://cdn-icons-png.flaticon.com/512/684/684908.png') no-repeat center left, linear-gradient(to right, #004e92, #000428);
+      background-size: 30px 30px, cover;
     }
 
     .card-header.destino {
-      background-color: #004e92;
+      background: url('https://cdn-icons-png.flaticon.com/512/854/854894.png') no-repeat center left, linear-gradient(to right, #004e92, #000428);
+      background-size: 30px 30px, cover;
     }
 
     .card p {

@@ -54,11 +54,18 @@
       margin-bottom: 5px;
     }
 
-    .input-group input {
+    .input-group input[type="text"],
+    .input-group input[type="password"] {
       width: 100%;
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 5px;
+    }
+
+    .remember-group {
+      text-align: left;
+      margin-bottom: 20px;
+      font-size: 14px;
     }
 
     .btn-login {
@@ -100,6 +107,11 @@
       <input type="password" id="senha" placeholder="Senha" />
     </div>
 
+    <div class="remember-group">
+      <input type="checkbox" id="lembrarSenha">
+      <label for="lembrarSenha">Lembrar minha senha</label>
+    </div>
+
     <button class="btn-login" onclick="fazerLogin()">ENTRAR</button>
   </div>
   <div class="footer">
@@ -107,14 +119,39 @@
   </div>
 
   <script>
+    // Preencher campos automaticamente se já estiverem salvos
+    window.onload = function () {
+      const savedUser = localStorage.getItem("usuario");
+      const savedPass = localStorage.getItem("senha");
+      const lembrar = localStorage.getItem("lembrarSenha");
+
+      if (lembrar === "true") {
+        document.getElementById("usuario").value = savedUser || "";
+        document.getElementById("senha").value = savedPass || "";
+        document.getElementById("lembrarSenha").checked = true;
+      }
+    };
+
     function fazerLogin() {
       const usuario = document.getElementById("usuario").value;
       const senha = document.getElementById("senha").value;
+      const lembrar = document.getElementById("lembrarSenha").checked;
 
       if (usuario && senha) {
-        // Aqui você pode integrar com backend ou localStorage
+        if (lembrar) {
+          localStorage.setItem("usuario", usuario);
+          localStorage.setItem("senha", senha);
+          localStorage.setItem("lembrarSenha", true);
+        } else {
+          localStorage.removeItem("usuario");
+          localStorage.removeItem("senha");
+          localStorage.removeItem("lembrarSenha");
+        }
+
+        // Dados temporários para simulação
         localStorage.setItem("motoristaNome", usuario);
-        localStorage.setItem("motoristaCodigo", "BAND1"); // temporário
+        localStorage.setItem("motoristaCodigo", "BAND1");
+
         window.location.href = "home.html";
       } else {
         alert("Por favor, preencha todos os campos.");

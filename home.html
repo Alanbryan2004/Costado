@@ -109,7 +109,7 @@
 
     <div class="main">
       <div class="topbar">
-        <button onclick="toggleMenu()"><i class="material-icons">menu</i></button>
+        <button id="menuButton"><i class="material-icons">menu</i></button>
         <h1 style="margin-left: 15px; font-size: 20px;">Convocação</h1>
       </div>
       <div class="content">
@@ -120,20 +120,27 @@
   </div>
 
   <script>
+    // Função para alternar a classe 'active' e abrir/fechar a barra lateral
     function toggleMenu() {
       const sidebar = document.getElementById('sidebar');
       sidebar.classList.toggle('active');
     }
 
-    // Fecha o menu quando clicar fora da barra lateral
+    // Evento para fechar o menu se o clique for fora da barra lateral
     document.addEventListener('click', function(event) {
       const sidebar = document.getElementById('sidebar');
-      const menuButton = document.querySelector('.topbar button');
+      const menuButton = document.getElementById('menuButton');
       
-      // Se o clique for fora do menu e do botão de abrir/fechar, fecha o menu
+      // Se o clique foi fora da barra lateral e do botão, fecha o menu
       if (!sidebar.contains(event.target) && event.target !== menuButton) {
         sidebar.classList.remove('active');
       }
+    });
+
+    // Previne o clique no botão de menu de ser considerado como um "clique fora"
+    document.getElementById('menuButton').addEventListener('click', function(event) {
+      event.stopPropagation(); // Impede que o clique no botão feche o menu
+      toggleMenu(); // Alterna a barra lateral
     });
   </script>
 </body>

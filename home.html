@@ -89,14 +89,42 @@
     }
     .content {
       margin-top: 60px;
-      background-color: #ffffff;
       padding: 20px;
-      border-radius: 8px;
+      overflow-y: auto;
+      height: calc(100vh - 60px);
     }
-    .content h2, .content p {
-      margin: 0;
+    .card {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+    }
+    .card h3 {
       color: #005aa7;
+      margin-top: 0;
+    }
+    .card p {
+      margin: 5px 0;
+    }
+    .actions {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .actions button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
       font-weight: bold;
+    }
+    .accept-btn {
+      background-color: green;
+    }
+    .decline-btn {
+      background-color: red;
     }
   </style>
 </head>
@@ -122,7 +150,7 @@
           <i class="material-icons">bookmark</i>Reserva
         </div>
       </a>
-      
+
       <a href="index.html" style="text-decoration: none;">
         <div class="menu-item">
           <i class="material-icons">exit_to_app</i>Sair
@@ -136,70 +164,38 @@
         <h1 style="margin-left: 15px; font-size: 20px;">Convocação</h1>
       </div>
       <div class="content">
-  <div class="card" style="background-color: #CCE5FF; border-radius: 10px; padding: 10px; margin-bottom: 20px;">
-    <h3 style="color: #005AA7;">INFORMAÇÕES DA COLETA</h3>
-    <p><strong>Tipo:</strong> SUA VEZ PELA CHAPEIRA 00002C</p>
-    <p><strong>Fila:</strong> 001 - TRA COOPERADO</p>
-    <p><strong>Nº Coleta:</strong> 031275 (PLANEJADO)</p>
-    <p><strong>Nº Solicitação:</strong> 0429/2021</p>
-    <p><strong>Dt/Hr Efetuar Coleta:</strong> 10 Apr 2023 00:00</p>
-    <hr>
-    <h3 style="color: #005AA7;">ORIGEM</h3>
-    <p><strong>Fantasia:</strong> ASIA SHIPPING TRANSP</p>
-    <p><strong>Endereço:</strong> R ALEXANDRE HERCULANO, 197 - GONZAGA - SANTOS/SP CEP: 11050031</p>
-    <hr>
-    <h3 style="color: #005AA7;">DESTINO</h3>
-    <p><strong>Fantasia:</strong> DEICMAR IPA</p>
-    <p><strong>Endereço:</strong> AVENIDA EDUARDO PEREIRA GUINLE, 00 - OUTEIRINHOS - SANTOS/SP CEP: 11013250</p>
-    <div style="margin-top: 10px;">
-      <button style="background-color: green; color: white; border: none; padding: 10px; border-radius: 5px; margin-right: 10px;">ACEITAR</button>
-      <button style="background-color: red; color: white; border: none; padding: 10px; border-radius: 5px;">RECUSAR</button>
-    </div>
-  </div>
-  <!-- Duplique para mais 2 cards iguais, se quiser simular múltiplas convocações: -->
-  <!-- Card 2 -->
-  <div class="card" style="background-color: #CCE5FF; border-radius: 10px; padding: 10px; margin-bottom: 20px;">
-    <h3 style="color: #005AA7;">INFORMAÇÕES DA COLETA</h3>
-    <p><strong>Tipo:</strong> SUA VEZ PELA CHAPEIRA 00002C</p>
-    <p><strong>Fila:</strong> 001 - TRA COOPERADO</p>
-    <p><strong>Nº Coleta:</strong> 031275 (PLANEJADO)</p>
-    <p><strong>Nº Solicitação:</strong> 0429/2021</p>
-    <p><strong>Dt/Hr Efetuar Coleta:</strong> 10 Apr 2023 00:00</p>
-    <hr>
-    <h3 style="color: #005AA7;">ORIGEM</h3>
-    <p><strong>Fantasia:</strong> ASIA SHIPPING TRANSP</p>
-    <p><strong>Endereço:</strong> R ALEXANDRE HERCULANO, 197 - GONZAGA - SANTOS/SP CEP: 11050031</p>
-    <hr>
-    <h3 style="color: #005AA7;">DESTINO</h3>
-    <p><strong>Fantasia:</strong> DEICMAR IPA</p>
-    <p><strong>Endereço:</strong> AVENIDA EDUARDO PEREIRA GUINLE, 00 - OUTEIRINHOS - SANTOS/SP CEP: 11013250</p>
-    <div style="margin-top: 10px;">
-      <button style="background-color: green; color: white; border: none; padding: 10px; border-radius: 5px; margin-right: 10px;">ACEITAR</button>
-      <button style="background-color: red; color: white; border: none; padding: 10px; border-radius: 5px;">RECUSAR</button>
-    </div>
-  </div>
-  <!-- Card 3 -->
-  <div class="card" style="background-color: #CCE5FF; border-radius: 10px; padding: 10px;">
-    <h3 style="color: #005AA7;">INFORMAÇÕES DA COLETA</h3>
-    <p><strong>Tipo:</strong> SUA VEZ PELA CHAPEIRA 00002C</p>
-    <p><strong>Fila:</strong> 001 - TRA COOPERADO</p>
-    <p><strong>Nº Coleta:</strong> 031275 (PLANEJADO)</p>
-    <p><strong>Nº Solicitação:</strong> 0429/2021</p>
-    <p><strong>Dt/Hr Efetuar Coleta:</strong> 10 Apr 2023 00:00</p>
-    <hr>
-    <h3 style="color: #005AA7;">ORIGEM</h3>
-    <p><strong>Fantasia:</strong> ASIA SHIPPING TRANSP</p>
-    <p><strong>Endereço:</strong> R ALEXANDRE HERCULANO, 197 - GONZAGA - SANTOS/SP CEP: 11050031</p>
-    <hr>
-    <h3 style="color: #005AA7;">DESTINO</h3>
-    <p><strong>Fantasia:</strong> DEICMAR IPA</p>
-    <p><strong>Endereço:</strong> AVENIDA EDUARDO PEREIRA GUINLE, 00 - OUTEIRINHOS - SANTOS/SP CEP: 11013250</p>
-    <div style="margin-top: 10px;">
-      <button style="background-color: green; color: white; border: none; padding: 10px; border-radius: 5px; margin-right: 10px;">ACEITAR</button>
-      <button style="background-color: red; color: white; border: none; padding: 10px; border-radius: 5px;">RECUSAR</button>
-    </div>
-  </div>
-</div>
+        <!-- Card: Informações da Coleta -->
+        <div class="card">
+          <h3>INFORMAÇÕES DA COLETA</h3>
+          <p><strong>Tipo:</strong> SUA VEZ PELA CHAPEIRA 00002C</p>
+          <p><strong>Fila:</strong> 001 - TRA COOPERADO</p>
+          <p><strong>Nº Coleta:</strong> 031275 (PLANEJADO)</p>
+          <p><strong>Nº Solicitação:</strong> 0429/2021</p>
+          <p><strong>Dt/Hr Efetuar Coleta:</strong> 10 Apr 2023 00:00</p>
+        </div>
+
+        <!-- Card: Origem -->
+        <div class="card">
+          <h3>ORIGEM</h3>
+          <p><strong>Fantasia:</strong> ASIA SHIPPING TRANSP</p>
+          <p><strong>Endereço:</strong> R ALEXANDRE HERCULANO, 197 - GONZAGA - SANTOS/SP</p>
+          <p><strong>CEP:</strong> 11050031</p>
+        </div>
+
+        <!-- Card: Destino -->
+        <div class="card">
+          <h3>DESTINO</h3>
+          <p><strong>Fantasia:</strong> DEICMAR IPA</p>
+          <p><strong>Endereço:</strong> AVENIDA EDUARDO PEREIRA GUINLE, 00 - OUTEIRINHOS - SANTOS/SP</p>
+          <p><strong>CEP:</strong> 11013250</p>
+        </div>
+
+        <!-- Botões -->
+        <div class="actions">
+          <button class="accept-btn">ACEITAR</button>
+          <button class="decline-btn">RECUSAR</button>
+        </div>
+      </div>
     </div>
   </div>
 

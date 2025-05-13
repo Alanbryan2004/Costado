@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Rodízio Motoristas</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #0052a3, #42a046);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-container {
+      background: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    .login-container h1 {
+      font-size: 22px;
+      color: #0052a3;
+      margin-bottom: 5px;
+    }
+
+    .login-container p {
+      font-size: 14px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .input-group {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .btn-login {
+      background-color: #007bff;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn-login:hover {
+      background-color: #0056b3;
+    }
+
+    .footer {
+      margin-top: 20px;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <img src="logo.png" alt="Logo" style="height: 80px; margin-bottom: 20px;">
+    <h1>Bem-vindo ao Mantran Mobile</h1>
+    <p>Entre para continuar</p>
+
+    <div class="input-group">
+      <label for="usuario">Informe seu Usuário</label>
+      <input type="text" id="usuario" placeholder="Usuário" />
+    </div>
+
+    <div class="input-group">
+      <label for="senha">Informe sua Senha</label>
+      <input type="password" id="senha" placeholder="Senha" />
+    </div>
+
+    <button class="btn-login" onclick="fazerLogin()">ENTRAR</button>
+  </div>
+  <div class="footer">
+    www.mantran.com.br
+  </div>
+
+  <script>
+    function fazerLogin() {
+      const usuario = document.getElementById("usuario").value;
+      const senha = document.getElementById("senha").value;
+
+      if (usuario && senha) {
+        // Aqui você pode integrar com backend ou localStorage
+        localStorage.setItem("motoristaNome", usuario);
+        localStorage.setItem("motoristaCodigo", "BAND1"); // temporário
+        window.location.href = "home.html";
+      } else {
+        alert("Por favor, preencha todos os campos.");
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Filas</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #87b6dd;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      background: linear-gradient(to right, #004d99, #3399cc);
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .menu-icon {
+      font-size: 24px;
+      margin-right: 10px;
+    }
+
+    .fila-container {
+      padding: 10px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 10px 15px;
+      margin-bottom: 12px;
+      display: flex;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .posicao {
+      font-size: 24px;
+      font-weight: bold;
+      color: #0066cc;
+      margin-right: 15px;
+      min-width: 50px;
+    }
+
+    .info {
+      flex: 1;
+    }
+
+    .nome-fila {
+      font-weight: bold;
+      font-size: 16px;
+      color: #004d99;
+      margin-bottom: 5px;
+    }
+
+    .detalhes {
+      font-size: 14px;
+      color: #333;
+    }
+
+    .detalhes strong {
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="menu-icon">&#9776;</div>
+    Filas
+  </div>
+
+  <div class="fila-container">
+    <div class="card">
+      <div class="posicao">#2</div>
+      <div class="info">
+        <div class="nome-fila">004 - SANTOS X SANTOS TERCEIRO</div>
+        <div class="detalhes">
+          <strong>Sua Chapeira:</strong> 00002C<br>
+          <strong>Primeiro:</strong> 00001C - NAO DEFINIDO
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="posicao">#2</div>
+      <div class="info">
+        <div class="nome-fila">001 - TRA COOPERADO</div>
+        <div class="detalhes">
+          <strong>Sua Chapeira:</strong> 00002C<br>
+          <strong>Primeiro:</strong> 00425C - ACACIO LEAL
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="posicao">#2</div>
+      <div class="info">
+        <div class="nome-fila">003 - SANTOS X SANTOS COOPERADO</div>
+        <div class="detalhes">
+          <strong>Sua Chapeira:</strong> 00002C<br>
+          <strong>Primeiro:</strong> 00001C - NAO DEFINIDO
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="posicao">#191</div>
+      <div class="info">
+        <div class="nome-fila">002 - TRA TERCEIRO</div>
+        <div class="detalhes">
+          <strong>Sua Chapeira:</strong> 00002C<br>
+          <strong>Primeiro:</strong> 00020C - ILMAR CARDOSO DE JESUS
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

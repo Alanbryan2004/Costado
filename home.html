@@ -125,18 +125,19 @@
       max-width: 100%;
       width: 100%;
       position: relative;
-      overflow: hidden;
-      background: linear-gradient(to right, #005aa7, #00c6fb);
     }
 
     .card-header {
       background: linear-gradient(to right, #004e92, #000428);
+      background-size: 100% 100%, cover;
+      background-position: left;
       color: white;
       padding: 20px 10px 20px 40px;
-      border-radius: 10px 10px 0 0;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
       font-weight: bold;
       text-align: center;
-      position: relative;
+      margin-top: -20px; /* Ajusta o topo */
     }
 
     .card-header.origem {

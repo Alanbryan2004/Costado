@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mantran Mobile</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #005aa7, #00c6fb);
+      color: #333;
+    }
+    .container {
+      display: flex;
+      height: 100vh;
+      background-color: #82b4d7; /* Fundo da container alterado para #82b4d7 */
+    }
+    .sidebar {
+      width: 250px;
+      background-color: #fff;
+      padding: 0;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      position: absolute;
+      height: 100%;
+      z-index: 30; /* Aumenta o z-index para garantir que a sidebar fique na frente da topbar */
+    }
+    .sidebar.active {
+      transform: translateX(0);
+    }
+    .sidebar-header {
+      background: linear-gradient(to right, #005aa7, #00c6fb);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .sidebar-header img {
+      width: 60px;
+      margin-bottom: 10px;
+    }
+    .sidebar h2 {
+      margin: 5px 0 0 0;
+      font-size: 16px;
+    }
+    .sidebar p {
+      margin: 0;
+      font-weight: bold;
+      color: #eee;
+      font-size: 14px;
+    }
+    .menu-item {
+      margin: 20px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      color: #005aa7;
+      font-weight: 500;
+    }
+    .menu-item i {
+      margin-right: 10px;
+    }
+    .main {
+      flex: 1;
+      padding: 20px;
+      background-color: #82b4d7; /* Fundo da div.main alterado para #82b4d7 */
+    }
+    .topbar {
+      background: linear-gradient(to right, #005aa7, #00c6fb, #00a859); /* Degradê de azul para verde */
+      color: white;
+      padding: 0; /* Remove o padding */
+      margin: 0; /* Remove a margem */
+      display: flex;
+      align-items: center;
+      width: 100%; /* Garante que ocupe toda a largura da tela */
+      position: fixed; /* Fixa no topo */
+      top: 0; /* Alinha ao topo da tela */
+      left: 0; /* Garante que fique alinhado à esquerda */
+      z-index: 20; /* Garante que fique acima de outros elementos */
+    }
+    .topbar button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .content {
+      margin-top: 60px; /* Dá espaço para a topbar fixa */
+      background-color: #ffffff; /* Fundo branco */
+      padding: 20px; /* Adicionando padding para espaçamento */
+      border-radius: 8px; /* Borda arredondada */
+    }
+    .content h2, .content p {
+      margin: 0;
+      color: #005aa7; /* Cor azul */
+      font-weight: bold; /* Texto em negrito */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <img src="logo.png" alt="Logo Bandeirantes" />
+        <h2>José Marcio Ruiz</h2>
+        <p>C149</p>
+      </div>
+      <div class="menu-item"><i class="material-icons">person</i>Convocação</div>
+
+      <!-- Link funcional para Fila -->
+      <a href="fila.html" style="text-decoration: none;">
+        <div class="menu-item">
+          <i class="material-icons">format_list_numbered</i>Fila
+        </div>
+      </a>
+
+      <div class="menu-item"><i class="material-icons">bookmark</i>Reserva</div>
+      
+      <!-- Link para Sair, redirecionando para index.html -->
+      <a href="index.html" style="text-decoration: none;">
+        <div class="menu-item">
+          <i class="material-icons">exit_to_app</i>Sair
+        </div>
+      </a>
+    </div>
+
+    <div class="main">
+      <div class="topbar">
+        <button id="menuButton"><i class="material-icons">menu</i></button>
+        <h1 style="margin-left: 15px; font-size: 20px;">Reserva</h1>
+      </div>
+      <div class="content">
+        <h2>Você não possui Reserva</h2>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Função para alternar a classe 'active' e abrir/fechar a barra lateral
+    function toggleMenu() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('active');
+    }
+
+    // Evento para fechar o menu se o clique for fora da barra lateral
+    document.addEventListener('click', function(event) {
+      const sidebar = document.getElementById('sidebar');
+      const menuButton = document.getElementById('menuButton');
+      
+      // Se o clique foi fora da barra lateral e do botão, fecha o menu
+      if (!sidebar.contains(event.target) && event.target !== menuButton) {
+        sidebar.classList.remove('active');
+      }
+    });
+
+    // Previne o clique no botão de menu de ser considerado como um "clique fora"
+    document.getElementById('menuButton').addEventListener('click', function(event) {
+      event.stopPropagation(); // Impede que o clique no botão feche o menu
+      toggleMenu(); // Alterna a barra lateral
+    });
+  </script>
+</body>
+</html>

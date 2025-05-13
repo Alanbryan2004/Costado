@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Filas</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -37,6 +38,23 @@
       color: white;
       padding: 20px;
       text-align: center;
+    }
+
+    .sidebar-header img {
+      width: 60px;
+      margin-bottom: 10px;
+    }
+
+    .sidebar h2 {
+      margin: 5px 0 0 0;
+      font-size: 16px;
+    }
+
+    .sidebar p {
+      margin: 0;
+      font-weight: bold;
+      color: #eee;
+      font-size: 14px;
     }
 
     .menu-item {
@@ -118,10 +136,16 @@
   <div class="container">
     <div class="sidebar" id="sidebar">
       <div class="sidebar-header">
-        <h2>Menu</h2>
+        <h2>José Marcio Ruiz</h2>
+        <p>C149</p>
       </div>
-      <div class="menu-item"><i class="material-icons">home</i>Início</div>
-      <div class="menu-item"><i class="material-icons">queue</i>Filas</div>
+      <div class="menu-item"><i class="material-icons">person</i>Convocação</div>
+      <a href="fila.html" style="text-decoration: none;">
+        <div class="menu-item">
+          <i class="material-icons">format_list_numbered</i>Fila
+        </div>
+      </a>
+      <div class="menu-item"><i class="material-icons">bookmark</i>Reserva</div>
       <div class="menu-item"><i class="material-icons">exit_to_app</i>Sair</div>
     </div>
 

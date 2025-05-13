@@ -10,13 +10,15 @@
       margin: 0;
       font-family: Arial, sans-serif;
       background: linear-gradient(to right, #005aa7, #00c6fb);
-      color: #333;
+      color: #003366;
     }
+
     .container {
       display: flex;
       height: 100vh;
       background-color: #82b4d7;
     }
+
     .sidebar {
       width: 250px;
       background-color: #fff;
@@ -28,29 +30,35 @@
       height: 100%;
       z-index: 30;
     }
+
     .sidebar.active {
       transform: translateX(0);
     }
+
     .sidebar-header {
       background: linear-gradient(to right, #005aa7, #00c6fb);
       color: white;
       padding: 20px;
       text-align: center;
     }
+
     .sidebar-header img {
       width: 60px;
       margin-bottom: 10px;
     }
+
     .sidebar h2 {
       margin: 5px 0 0 0;
       font-size: 16px;
     }
+
     .sidebar p {
       margin: 0;
       font-weight: bold;
       color: #eee;
       font-size: 14px;
     }
+
     .menu-item {
       margin: 20px;
       display: flex;
@@ -59,14 +67,17 @@
       color: #005aa7;
       font-weight: 500;
     }
+
     .menu-item i {
       margin-right: 10px;
     }
+
     .main {
       flex: 1;
       padding: 20px;
       background-color: #82b4d7;
     }
+
     .topbar {
       background: linear-gradient(to right, #005aa7, #00c6fb, #00a859);
       color: white;
@@ -80,6 +91,7 @@
       left: 0;
       z-index: 20;
     }
+
     .topbar button {
       background: none;
       border: none;
@@ -87,31 +99,58 @@
       font-size: 24px;
       cursor: pointer;
     }
+
     .content {
       margin-top: 60px;
       padding: 20px;
       overflow-y: auto;
       height: calc(100vh - 60px);
     }
+
     .card {
       background-color: #ffffff;
       border-radius: 10px;
       padding: 15px;
-      margin: 0 -20px 20px -20px;
+      margin-bottom: 20px;
       box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
-      color: #003366;
+      max-width: 100%;
+      width: 100%;
     }
-    .card h3 {
-      margin-top: 0;
+
+    .card-header {
+      background: url('https://cdn-icons-png.flaticon.com/512/2815/2815428.png') no-repeat center left,
+                  linear-gradient(to right, #004e92, #000428);
+      background-size: 30px 30px, cover;
+      color: white;
+      padding: 10px 10px 10px 40px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      font-weight: bold;
       text-align: center;
     }
+
+    .card-header.origem {
+      background: url('https://cdn-icons-png.flaticon.com/512/684/684908.png') no-repeat center left,
+                  linear-gradient(to right, #004e92, #000428);
+      background-size: 30px 30px, cover;
+    }
+
+    .card-header.destino {
+      background: url('https://cdn-icons-png.flaticon.com/512/854/854894.png') no-repeat center left,
+                  linear-gradient(to right, #004e92, #000428);
+      background-size: 30px 30px, cover;
+    }
+
     .card p {
       margin: 5px 0;
+      color: #003366;
     }
+
     .actions {
       text-align: center;
       margin-top: 20px;
     }
+
     .actions button {
       padding: 10px 20px;
       margin: 0 10px;
@@ -121,9 +160,11 @@
       cursor: pointer;
       font-weight: bold;
     }
+
     .accept-btn {
       background-color: green;
     }
+
     .decline-btn {
       background-color: red;
     }
@@ -138,6 +179,7 @@
         <h2>José Marcio Ruiz</h2>
         <p>C149</p>
       </div>
+
       <div class="menu-item"><i class="material-icons">person</i>Convocação</div>
 
       <a href="fila.html" style="text-decoration: none;">
@@ -164,10 +206,11 @@
         <button id="menuButton"><i class="material-icons">menu</i></button>
         <h1 style="margin-left: 15px; font-size: 20px;">Convocação</h1>
       </div>
+
       <div class="content">
         <!-- Card: Informações da Coleta -->
         <div class="card">
-          <h3>INFORMAÇÕES DA COLETA</h3>
+          <div class="card-header">INFORMAÇÕES DA COLETA</div>
           <p><strong>Tipo:</strong> SUA VEZ PELA CHAPEIRA 00002C</p>
           <p><strong>Fila:</strong> 001 - TRA COOPERADO</p>
           <p><strong>Nº Coleta:</strong> 031275 (PLANEJADO)</p>
@@ -177,7 +220,7 @@
 
         <!-- Card: Origem -->
         <div class="card">
-          <h3>ORIGEM</h3>
+          <div class="card-header origem">ORIGEM</div>
           <p><strong>Fantasia:</strong> ASIA SHIPPING TRANSP</p>
           <p><strong>Endereço:</strong> R ALEXANDRE HERCULANO, 197 - GONZAGA - SANTOS/SP</p>
           <p><strong>CEP:</strong> 11050031</p>
@@ -185,7 +228,7 @@
 
         <!-- Card: Destino -->
         <div class="card">
-          <h3>DESTINO</h3>
+          <div class="card-header destino">DESTINO</div>
           <p><strong>Fantasia:</strong> DEICMAR IPA</p>
           <p><strong>Endereço:</strong> AVENIDA EDUARDO PEREIRA GUINLE, 00 - OUTEIRINHOS - SANTOS/SP</p>
           <p><strong>CEP:</strong> 11013250</p>
@@ -219,5 +262,6 @@
       toggleMenu();
     });
   </script>
+
 </body>
 </html>

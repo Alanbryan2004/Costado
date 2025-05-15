@@ -269,6 +269,7 @@
       sidebar.classList.toggle('active');
     }
 
+    // Fecha o menu se clicar fora dele
     document.addEventListener('click', function(event) {
       const sidebar = document.getElementById('sidebar');
       const menuButton = document.getElementById('menuButton');
@@ -277,6 +278,7 @@
       }
     });
 
+    // Abre ou fecha o menu ao clicar no botão
     document.getElementById('menuButton').addEventListener('click', function(event) {
       event.stopPropagation();
       toggleMenu();

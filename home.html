@@ -246,7 +246,7 @@
         <!-- Botões -->
         <div class="actions">
           <button class="accept-btn" id="btnAceitar">ACEITAR</button>
-          <button class="decline-btn">RECUSAR</button>
+          <button class="decline-btn" id="btnRecusar">RECUSAR</button>
         </div>
       </div>
     </div>
@@ -271,9 +271,12 @@
       toggleMenu();
     });
 
-    // Redireciona para agenda.html ao clicar em ACEITAR
     document.getElementById('btnAceitar').addEventListener('click', function () {
       window.location.href = 'agenda.html';
+    });
+
+    document.getElementById('btnRecusar').addEventListener('click', function () {
+      window.location.href = 'sem_agenda.html';
     });
   </script>
 

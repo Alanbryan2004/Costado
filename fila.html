@@ -6,6 +6,10 @@
   <title>Filas</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -14,19 +18,42 @@
 
     .container {
       display: flex;
-      height: 100vh;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      background: linear-gradient(to right, #005aa7, #00a859);
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .menu-icon {
+      font-size: 24px;
+      margin-right: 10px;
+      cursor: pointer;
     }
 
     .sidebar {
       width: 250px;
       background-color: #fff;
-      padding: 0;
-      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      height: 100%;
+      top: 0;
+      left: 0;
       transform: translateX(-100%);
       transition: transform 0.3s ease;
-      position: absolute;
-      height: 100%;
-      z-index: 30;
+      z-index: 999;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     }
 
     .sidebar.active {
@@ -34,7 +61,7 @@
     }
 
     .sidebar-header {
-      background: linear-gradient(to right, #005aa7, #00a859); /* Azul para verde */
+      background: linear-gradient(to right, #005aa7, #00a859);
       color: white;
       padding: 20px;
       text-align: center;
@@ -53,7 +80,6 @@
     .sidebar p {
       margin: 0;
       font-weight: bold;
-      color: #eee;
       font-size: 14px;
     }
 
@@ -70,37 +96,21 @@
       margin-right: 10px;
     }
 
-    .header {
-      display: flex;
-      align-items: center;
-      padding: 15px;
-      background: linear-gradient(to right, #005aa7, #00a859); /* Azul para verde */
-      color: white;
-      font-size: 20px;
-      font-weight: bold;
-      z-index: 20;
-      position: fixed;
-      width: 100%;
-    }
-
-    .menu-icon {
-      font-size: 24px;
-      margin-right: 10px;
-      cursor: pointer;
-    }
-
     .fila-container {
-      padding: 10px;
-      margin-top: 60px; /* Dá espaço para a header fixa */
+      padding: 15px;
+      padding-top: 80px;
+      max-width: 900px;
+      margin: auto;
     }
 
     .card {
       background: white;
       border-radius: 10px;
       padding: 10px 15px;
-      margin-bottom: 12px;
+      margin-bottom: 15px;
       display: flex;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      flex-wrap: wrap;
     }
 
     .posicao {
@@ -113,6 +123,7 @@
 
     .info {
       flex: 1;
+      min-width: 200px;
     }
 
     .nome-fila {
@@ -130,46 +141,76 @@
     .detalhes strong {
       color: #000;
     }
+
+    a {
+      text-decoration: none;
+    }
+
+    @media (min-width: 768px) {
+      .sidebar {
+        position: relative;
+        transform: translateX(0);
+        height: auto;
+        box-shadow: none;
+      }
+
+      .sidebar.active {
+        transform: translateX(0);
+      }
+
+      .container {
+        flex-direction: row;
+      }
+
+      .header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      .fila-container {
+        padding: 20px;
+        margin-left: 250px;
+        padding-top: 80px;
+        flex: 1;
+      }
+
+      .menu-icon {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
+    <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <img src="logo.png" alt="Logo Bandeirantes" />
         <h2>José Marcio Ruiz</h2>
         <p>C149</p>
       </div>
-      <!-- Link para Convocação -->
-      <a href="home.html" style="text-decoration: none;">
-        <div class="menu-item">
-          <i class="material-icons">person</i>Convocação
-        </div>
+      <a href="home.html">
+        <div class="menu-item"><i class="material-icons">person</i>Convocação</div>
       </a>
-      <!-- Link para Fila -->
-      <a href="fila.html" style="text-decoration: none;">
-        <div class="menu-item">
-          <i class="material-icons">format_list_numbered</i>Fila
-        </div>
+      <a href="fila.html">
+        <div class="menu-item"><i class="material-icons">format_list_numbered</i>Fila</div>
       </a>
-      <a href="reserva.html" style="text-decoration: none;">
-  <div class="menu-item">
-    <i class="material-icons">bookmark</i>Reserva
-  </div>
-</a>
-      <!-- Link para Sair -->
-      <a href="index.html" style="text-decoration: none;">
-        <div class="menu-item">
-          <i class="material-icons">exit_to_app</i>Sair
-        </div>
+      <a href="reserva.html">
+        <div class="menu-item"><i class="material-icons">bookmark</i>Reserva</div>
+      </a>
+      <a href="index.html">
+        <div class="menu-item"><i class="material-icons">exit_to_app</i>Sair</div>
       </a>
     </div>
 
+    <!-- Header -->
     <div class="header">
       <div class="menu-icon" id="menuButton">&#9776;</div>
       Filas
     </div>
 
+    <!-- Conteúdo -->
     <div class="fila-container">
       <div class="card">
         <div class="posicao">#2</div>
@@ -218,27 +259,23 @@
   </div>
 
   <script>
-    // Função para alternar a classe 'active' e abrir/fechar a barra lateral
     function toggleMenu() {
       const sidebar = document.getElementById('sidebar');
       sidebar.classList.toggle('active');
     }
 
-    // Evento para fechar o menu se o clique for fora da barra lateral
     document.addEventListener('click', function(event) {
       const sidebar = document.getElementById('sidebar');
       const menuButton = document.getElementById('menuButton');
-      
-      // Se o clique foi fora da barra lateral e do botão, fecha o menu
+
       if (!sidebar.contains(event.target) && event.target !== menuButton) {
         sidebar.classList.remove('active');
       }
     });
 
-    // Previne o clique no botão de menu de ser considerado como um "clique fora"
     document.getElementById('menuButton').addEventListener('click', function(event) {
-      event.stopPropagation(); // Impede que o clique no botão feche o menu
-      toggleMenu(); // Alterna a barra lateral
+      event.stopPropagation();
+      toggleMenu();
     });
   </script>
 </body>

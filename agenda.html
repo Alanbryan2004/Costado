@@ -9,7 +9,6 @@
     body {
       margin: 0;
       padding: 0;
-      height: 100vh;
       width: 100vw;
       overflow: hidden;
       font-family: Arial, sans-serif;
@@ -19,16 +18,13 @@
 
     .container {
       display: flex;
-      height: 100vh;
       width: 100vw;
-      margin: 0;
-      padding: 0;
+      height: 100vh;
     }
 
     .sidebar {
       width: 250px;
       background-color: #fff;
-      padding: 0;
       box-shadow: 2px 0 5px rgba(0,0,0,0.1);
       transform: translateX(-100%);
       transition: transform 0.3s ease;
@@ -82,7 +78,7 @@
       flex: 1;
       height: 100vh;
       overflow: hidden;
-      padding: 20px 5px 20px 5px;
+      padding: 20px 5px;
       background-color: #82b4d7;
     }
 
@@ -112,7 +108,6 @@
       margin-top: 60px;
       padding: 20px 20px 20px 0px;
       overflow-y: auto;
-      height: calc(100vh - 60px);
     }
 
     .card {
@@ -163,7 +158,6 @@
 
     .actions button {
       padding: 10px 20px;
-      margin-top: 0;
       border: none;
       border-radius: 5px;
       color: white;
@@ -217,7 +211,6 @@
       </div>
 
       <div class="content">
-        <!-- Card: Informações do Agendamento -->
         <div class="card">
           <div class="card-header">INFORMAÇÕES DA AGENDA</div>
           <p><strong>Tipo:</strong> SUA VEZ PELA CHAPEIRA 00002C</p>
@@ -227,7 +220,6 @@
           <p><strong>Dt/Hr Efetuar Retirada:</strong> 10 Apr 2023 00:00</p>
         </div>
 
-        <!-- Card: Origem -->
         <div class="card">
           <div class="card-header origem">ORIGEM</div>
           <p><strong>Fantasia:</strong> ASIA SHIPPING TRANSP</p>
@@ -235,7 +227,6 @@
           <p><strong>CEP:</strong> 11050031</p>
         </div>
 
-        <!-- Card: Destino -->
         <div class="card">
           <div class="card-header destino">DESTINO</div>
           <p><strong>Fantasia:</strong> DEICMAR IPA</p>
@@ -243,7 +234,6 @@
           <p><strong>CEP:</strong> 11013250</p>
         </div>
 
-        <!-- Botão Finalizar -->
         <div class="actions">
           <button onclick="abrirModal()">Finalizar</button>
         </div>
@@ -269,7 +259,6 @@
       sidebar.classList.toggle('active');
     }
 
-    // Fecha o menu se clicar fora dele
     document.addEventListener('click', function(event) {
       const sidebar = document.getElementById('sidebar');
       const menuButton = document.getElementById('menuButton');
@@ -278,7 +267,6 @@
       }
     });
 
-    // Abre ou fecha o menu ao clicar no botão
     document.getElementById('menuButton').addEventListener('click', function(event) {
       event.stopPropagation();
       toggleMenu();
@@ -301,7 +289,20 @@
       alert("Agenda Realizada com Sucesso");
       window.location.href = "sem_agenda.html";
     }
-  </script>
 
+    // Ajuste de altura da área de conteúdo em celulares
+    function ajustarAlturaContent() {
+      const alturaDisponivel = window.innerHeight;
+      const content = document.querySelector('.content');
+      const topbar = document.querySelector('.topbar');
+      if (content && topbar) {
+        const alturaTopbar = topbar.offsetHeight;
+        content.style.height = (alturaDisponivel - alturaTopbar) + 'px';
+      }
+    }
+
+    window.addEventListener('load', ajustarAlturaContent);
+    window.addEventListener('resize', ajustarAlturaContent);
+  </script>
 </body>
 </html>

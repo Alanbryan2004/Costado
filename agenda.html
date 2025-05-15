@@ -13,7 +13,7 @@
       width: 100vw;
       overflow: hidden;
       font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #005aa7, #00c6fb); /* Fundo do corpo */
+      background: linear-gradient(to right, #005aa7, #00c6fb);
       color: #003366;
     }
 
@@ -83,7 +83,7 @@
       height: 100vh;
       overflow: hidden;
       padding: 20px 5px 20px 5px;
-      background-color: #82b4d7; /* Cor de fundo da main */
+      background-color: #82b4d7;
     }
 
     .topbar {
@@ -153,7 +153,6 @@
     .card p {
       margin: 5px 0;
       padding-left: 10px;
-      /* color: #003366; */
     }
 
     .actions {
@@ -161,22 +160,27 @@
       margin-top: 20px;
     }
 
+    .actions input {
+      padding: 10px;
+      width: 250px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
     .actions button {
       padding: 10px 20px;
-      margin: 0 10px;
+      margin-top: 15px;
       border: none;
       border-radius: 5px;
       color: white;
       cursor: pointer;
       font-weight: bold;
+      background-color: #005aa7;
     }
 
-    .accept-btn {
-      background-color: green;
-    }
-
-    .decline-btn {
-      background-color: red;
+    .actions label {
+      font-weight: bold;
+      font-size: 16px;
     }
   </style>
 </head>
@@ -244,10 +248,11 @@
           <p><strong>CEP:</strong> 11013250</p>
         </div>
 
-        <!-- Botões -->
+        <!-- Campo de Container e Botão Enviar -->
         <div class="actions">
-          <button class="accept-btn">ACEITAR</button>
-          <button class="decline-btn">RECUSAR</button>
+          <label for="containerInput">Informe o Nº do Container:</label><br><br>
+          <input type="text" id="containerInput" placeholder="Digite o nº do container" /><br><br>
+          <button onclick="enviarContainer()">Enviar</button>
         </div>
       </div>
     </div>
@@ -271,6 +276,16 @@
       event.stopPropagation();
       toggleMenu();
     });
+
+    function enviarContainer() {
+      const numero = document.getElementById('containerInput').value.trim();
+      if (numero === "") {
+        alert("Por favor, informe o nº do container.");
+        return;
+      }
+      alert("Agenda Realizada com Sucesso");
+      window.location.href = "sem_agenda.html";
+    }
   </script>
 
 </body>

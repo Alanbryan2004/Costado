@@ -14,7 +14,8 @@
 
     .container {
       display: flex;
-      height: 100vh;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     .sidebar {
@@ -24,9 +25,11 @@
       box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
       transform: translateX(-100%);
       transition: transform 0.3s ease;
-      position: absolute;
+      position: fixed;
       height: 100%;
       z-index: 30;
+      top: 0;
+      left: 0;
     }
 
     .sidebar.active {
@@ -34,7 +37,7 @@
     }
 
     .sidebar-header {
-      background: linear-gradient(to right, #005aa7, #00a859); /* Azul para verde */
+      background: linear-gradient(to right, #005aa7, #00a859);
       color: white;
       padding: 20px;
       text-align: center;
@@ -74,13 +77,15 @@
       display: flex;
       align-items: center;
       padding: 15px;
-      background: linear-gradient(to right, #005aa7, #00a859); /* Azul para verde */
+      background: linear-gradient(to right, #005aa7, #00a859);
       color: white;
       font-size: 20px;
       font-weight: bold;
       z-index: 20;
       position: fixed;
       width: 100%;
+      top: 0;
+      left: 0;
     }
 
     .menu-icon {
@@ -91,7 +96,10 @@
 
     .fila-container {
       padding: 10px;
-      margin-top: 60px; /* Dá espaço para a header fixa */
+      margin-top: 60px; /* para a header fixa */
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .card {
@@ -100,6 +108,8 @@
       padding: 10px 15px;
       margin-bottom: 12px;
       display: flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
@@ -113,6 +123,7 @@
 
     .info {
       flex: 1;
+      min-width: 0;
     }
 
     .nome-fila {
@@ -130,6 +141,33 @@
     .detalhes strong {
       color: #000;
     }
+
+    @media (max-width: 600px) {
+      .card {
+        flex-direction: column;
+      }
+
+      .posicao {
+        margin-bottom: 10px;
+        font-size: 20px;
+      }
+
+      .nome-fila {
+        font-size: 15px;
+      }
+
+      .detalhes {
+        font-size: 13px;
+      }
+
+      .menu-item {
+        font-size: 16px;
+      }
+
+      .header {
+        font-size: 18px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -140,28 +178,17 @@
         <h2>José Marcio Ruiz</h2>
         <p>C149</p>
       </div>
-      <!-- Link para Convocação -->
       <a href="home.html" style="text-decoration: none;">
-        <div class="menu-item">
-          <i class="material-icons">person</i>Convocação
-        </div>
+        <div class="menu-item"><i class="material-icons">person</i>Convocação</div>
       </a>
-      <!-- Link para Fila -->
       <a href="fila.html" style="text-decoration: none;">
-        <div class="menu-item">
-          <i class="material-icons">format_list_numbered</i>Fila
-        </div>
+        <div class="menu-item"><i class="material-icons">format_list_numbered</i>Fila</div>
       </a>
       <a href="reserva.html" style="text-decoration: none;">
-  <div class="menu-item">
-    <i class="material-icons">bookmark</i>Reserva
-  </div>
-</a>
-      <!-- Link para Sair -->
+        <div class="menu-item"><i class="material-icons">bookmark</i>Reserva</div>
+      </a>
       <a href="index.html" style="text-decoration: none;">
-        <div class="menu-item">
-          <i class="material-icons">exit_to_app</i>Sair
-        </div>
+        <div class="menu-item"><i class="material-icons">exit_to_app</i>Sair</div>
       </a>
     </div>
 
@@ -218,27 +245,22 @@
   </div>
 
   <script>
-    // Função para alternar a classe 'active' e abrir/fechar a barra lateral
     function toggleMenu() {
       const sidebar = document.getElementById('sidebar');
       sidebar.classList.toggle('active');
     }
 
-    // Evento para fechar o menu se o clique for fora da barra lateral
     document.addEventListener('click', function(event) {
       const sidebar = document.getElementById('sidebar');
       const menuButton = document.getElementById('menuButton');
-      
-      // Se o clique foi fora da barra lateral e do botão, fecha o menu
       if (!sidebar.contains(event.target) && event.target !== menuButton) {
         sidebar.classList.remove('active');
       }
     });
 
-    // Previne o clique no botão de menu de ser considerado como um "clique fora"
     document.getElementById('menuButton').addEventListener('click', function(event) {
-      event.stopPropagation(); // Impede que o clique no botão feche o menu
-      toggleMenu(); // Alterna a barra lateral
+      event.stopPropagation();
+      toggleMenu();
     });
   </script>
 </body>

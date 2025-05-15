@@ -13,7 +13,7 @@
       width: 100vw;
       overflow: hidden;
       font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #005aa7, #00c6fb); /* Fundo do corpo */
+      background: linear-gradient(to right, #005aa7, #00c6fb);
       color: #003366;
     }
 
@@ -83,7 +83,7 @@
       height: 100vh;
       overflow: hidden;
       padding: 20px 5px 20px 5px;
-      background-color: #82b4d7; /* Cor de fundo da main */
+      background-color: #82b4d7;
     }
 
     .topbar {
@@ -153,7 +153,6 @@
     .card p {
       margin: 5px 0;
       padding-left: 10px;
-      /* color: #003366; */
     }
 
     .actions {
@@ -246,7 +245,7 @@
 
         <!-- Botões -->
         <div class="actions">
-          <button class="accept-btn">ACEITAR</button>
+          <button class="accept-btn" id="btnAceitar">ACEITAR</button>
           <button class="decline-btn">RECUSAR</button>
         </div>
       </div>
@@ -272,13 +271,10 @@
       toggleMenu();
     });
 
-    <script>
-  document.getElementById('btnAceitar').addEventListener('click', function () {
-    window.location.href = 'agenda.html';
-  });
-</script>
-
-  
+    // Redireciona para agenda.html ao clicar em ACEITAR
+    document.getElementById('btnAceitar').addEventListener('click', function () {
+      window.location.href = 'agenda.html';
+    });
   </script>
 
 </body>

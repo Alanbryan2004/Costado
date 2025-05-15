@@ -110,7 +110,7 @@
 
     .content {
       margin-top: 60px;
-      padding: 20px 20px 20px 0px;
+      padding: 20px 10px 20px 10px;
       overflow-y: auto;
       height: calc(100vh - 60px);
     }
@@ -118,7 +118,7 @@
     .card {
       background-color: #ffffff;
       border-radius: 10px;
-      padding: 15px 15px 15px 0px;
+      padding: 15px 15px 15px 10px;
       margin-bottom: 20px;
       box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
       max-width: 100%;
@@ -129,13 +129,14 @@
     .card-header {
       background: linear-gradient(to right, #004e92, #004e92);
       color: white;
-      padding: 20px 10px 20px 5px;
+      padding: 15px 10px 15px 5px;
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
       font-weight: bold;
       text-align: center;
       margin-top: -20px;
       width: 100%;
+      font-size: 16px;
     }
 
     .card-header.origem {
@@ -153,35 +154,48 @@
     .card p {
       margin: 5px 0;
       padding-left: 10px;
+      font-size: 14px;
     }
 
     .actions {
       text-align: center;
-      margin-top: 20px;
+      margin-top: 15px;
     }
 
-    .actions input {
-      padding: 10px;
-      width: 250px;
+    .actions label {
+      font-size: 14px;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 6px;
+      color: #003366;
+    }
+
+    .actions input[type="text"] {
+      width: 90%;
+      padding: 8px;
+      font-size: 14px;
       border-radius: 5px;
       border: 1px solid #ccc;
+      box-sizing: border-box;
+      margin-bottom: 12px;
     }
 
     .actions button {
       padding: 10px 20px;
-      margin-top: 15px;
+      font-size: 14px;
       border: none;
       border-radius: 5px;
-      color: white;
-      cursor: pointer;
-      font-weight: bold;
       background-color: #005aa7;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
-    .actions label {
-      font-weight: bold;
-      font-size: 16px;
+    .actions button:hover {
+      background-color: #004080;
     }
+
   </style>
 </head>
 <body>
@@ -248,12 +262,13 @@
           <p><strong>CEP:</strong> 11013250</p>
         </div>
 
-        <!-- Campo de Container e Botão Enviar -->
+        <!-- Campo e botão enviar -->
         <div class="actions">
-          <label for="containerInput">Informe o Nº do Container:</label><br><br>
-          <input type="text" id="containerInput" placeholder="Digite o nº do container" /><br><br>
+          <label for="containerInput">Informe o Nº do Container:</label>
+          <input type="text" id="containerInput" placeholder="Nº do container" />
           <button onclick="enviarContainer()">Enviar</button>
         </div>
+
       </div>
     </div>
   </div>
@@ -278,13 +293,15 @@
     });
 
     function enviarContainer() {
-      const numero = document.getElementById('containerInput').value.trim();
-      if (numero === "") {
-        alert("Por favor, informe o nº do container.");
+      const input = document.getElementById('containerInput');
+      if (input.value.trim() === '') {
+        alert('Por favor, informe o número do container.');
+        input.focus();
         return;
       }
-      alert("Agenda Realizada com Sucesso");
-      window.location.href = "sem_agenda.html";
+      alert('Agenda Realizada com Sucesso');
+      // Após fechar o alert, redireciona para sem_agenda.html
+      window.location.href = 'sem_agenda.html';
     }
   </script>
 

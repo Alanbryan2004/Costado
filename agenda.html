@@ -157,19 +157,25 @@
 
     .actions {
       text-align: center;
-      margin-top: 20px;
-      padding-bottom: 10px; /* diminui espaço inferior para subir o botão */
+      margin-top: 10px;
+      padding-bottom: 5px;
     }
 
     .actions button {
       padding: 10px 20px;
-      margin-top: 5px; /* diminui margem superior para subir o botão */
+      margin-top: 0;
       border: none;
       border-radius: 5px;
       color: white;
       cursor: pointer;
       font-weight: bold;
-      background-color: #005aa7;
+      background-color: #28a745;
+      box-shadow: 0 2px 5px rgba(0, 128, 0, 0.5);
+      transition: background-color 0.3s ease;
+    }
+
+    .actions button:hover {
+      background-color: #218838;
     }
   </style>
 </head>

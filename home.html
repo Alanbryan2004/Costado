@@ -6,30 +6,30 @@
   <title>Mantran Mobile</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 0;
-      height: 100vh;
-      width: 100vw;
       font-family: Arial, sans-serif;
       background: linear-gradient(to right, #005aa7, #00c6fb);
       color: #003366;
-      /* REMOVIDO overflow: hidden para permitir scroll */
+      height: 100vh;
     }
 
     .container {
       display: flex;
-      height: 100vh;
-      width: 100vw;
-      margin: 0;
-      padding: 0;
-      /* REMOVIDO overflow: hidden se houver */
+      height: 100%;
+      width: 100%;
+      flex-direction: row;
+      position: relative;
     }
 
     .sidebar {
       width: 250px;
       background-color: #fff;
-      padding: 0;
       box-shadow: 2px 0 5px rgba(0,0,0,0.1);
       transform: translateX(-100%);
       transition: transform 0.3s ease;
@@ -84,9 +84,8 @@
       display: flex;
       flex-direction: column;
       height: 100vh;
-      padding: 20px 5px 20px 5px;
+      overflow: hidden;
       background-color: #82b4d7;
-      /* REMOVIDO overflow: hidden */
     }
 
     .topbar {
@@ -114,79 +113,96 @@
     }
 
     .content {
-      margin-top: 60px; /* para compensar a topbar fixa */
-      padding: 20px 20px 20px 0px;
+      margin-top: 60px;
+      padding: 20px 10px;
       overflow-y: auto;
-      flex: 1; /* ocupa o espaço restante */
-      -webkit-overflow-scrolling: touch; /* scroll suave iOS */
+      flex: 1;
     }
 
     .card {
       background-color: #ffffff;
       border-radius: 10px;
-      padding: 15px 15px 15px 0px;
+      padding: 15px;
       margin-bottom: 20px;
       box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
-      max-width: 100%;
       width: 100%;
-      position: relative;
     }
 
     .card-header {
       background: linear-gradient(to right, #004e92, #004e92);
       color: white;
-      padding: 20px 10px 20px 5px;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
+      padding: 15px 10px;
+      border-radius: 10px 10px 0 0;
       font-weight: bold;
       text-align: center;
-      margin-top: -20px;
-      width: 100%;
     }
 
     .card-header.origem {
-      background: url('https://cdn-icons-png.flaticon.com/512/684/684908.png') no-repeat center left, linear-gradient(to right, #004e92, #004e92);
+      background: url('https://cdn-icons-png.flaticon.com/512/684/684908.png') no-repeat 10px center, linear-gradient(to right, #004e92, #004e92);
       background-size: 30px 30px, cover;
-      background-position-x: 10px;
+      padding-left: 45px;
     }
 
     .card-header.destino {
-      background: url('https://cdn-icons-png.flaticon.com/512/854/854894.png') no-repeat center left, linear-gradient(to right, #004e92, #004e92);
+      background: url('https://cdn-icons-png.flaticon.com/512/854/854894.png') no-repeat 10px center, linear-gradient(to right, #004e92, #004e92);
       background-size: 30px 30px, cover;
-      background-position-x: 10px;
+      padding-left: 45px;
     }
 
     .card p {
       margin: 5px 0;
-      padding-left: 10px;
     }
 
     .actions {
       text-align: center;
       margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
     }
 
     .actions button {
-      padding: 10px 20px;
-      margin: 0 10px;
+      padding: 12px 24px;
       border: none;
       border-radius: 5px;
       color: white;
       cursor: pointer;
       font-weight: bold;
+      font-size: 16px;
+      flex: 1 1 120px;
+      max-width: 200px;
     }
 
     .accept-btn {
-      background-color: green;
+      background-color: #28a745;
     }
 
     .decline-btn {
-      background-color: red;
+      background-color: #dc3545;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    @media (min-width: 768px) {
+      .sidebar {
+        position: relative;
+        transform: translateX(0);
+      }
+
+      .main {
+        margin-left: 250px;
+      }
+
+      .topbar {
+        left: 250px;
+      }
     }
   </style>
 </head>
 <body>
-
   <div class="container">
     <div class="sidebar" id="sidebar">
       <div class="sidebar-header">
@@ -194,26 +210,10 @@
         <h2>José Marcio Ruiz</h2>
         <p>C149</p>
       </div>
-
       <div class="menu-item"><i class="material-icons">person</i>Convocação</div>
-
-      <a href="fila.html" style="text-decoration: none;">
-        <div class="menu-item">
-          <i class="material-icons">format_list_numbered</i>Fila
-        </div>
-      </a>
-
-      <a href="reserva.html" style="text-decoration: none;">
-        <div class="menu-item">
-          <i class="material-icons">bookmark</i>Reserva
-        </div>
-      </a>
-
-      <a href="index.html" style="text-decoration: none;">
-        <div class="menu-item">
-          <i class="material-icons">exit_to_app</i>Sair
-        </div>
-      </a>
+      <a href="fila.html"><div class="menu-item"><i class="material-icons">format_list_numbered</i>Fila</div></a>
+      <a href="reserva.html"><div class="menu-item"><i class="material-icons">bookmark</i>Reserva</div></a>
+      <a href="index.html"><div class="menu-item"><i class="material-icons">exit_to_app</i>Sair</div></a>
     </div>
 
     <div class="main">
@@ -259,22 +259,22 @@
   </div>
 
   <script>
+    const sidebar = document.getElementById('sidebar');
+    const menuButton = document.getElementById('menuButton');
+
     function toggleMenu() {
-      const sidebar = document.getElementById('sidebar');
       sidebar.classList.toggle('active');
     }
 
-    document.addEventListener('click', function(event) {
-      const sidebar = document.getElementById('sidebar');
-      const menuButton = document.getElementById('menuButton');
+    menuButton.addEventListener('click', function (e) {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    document.addEventListener('click', function (event) {
       if (!sidebar.contains(event.target) && event.target !== menuButton) {
         sidebar.classList.remove('active');
       }
-    });
-
-    document.getElementById('menuButton').addEventListener('click', function(event) {
-      event.stopPropagation();
-      toggleMenu();
     });
 
     document.getElementById('btnAceitar').addEventListener('click', function () {
@@ -285,6 +285,5 @@
       window.location.href = 'sem_agenda.html';
     });
   </script>
-
 </body>
 </html>

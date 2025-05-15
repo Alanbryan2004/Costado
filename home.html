@@ -11,10 +11,10 @@
       padding: 0;
       height: 100vh;
       width: 100vw;
-      overflow: hidden;
       font-family: Arial, sans-serif;
       background: linear-gradient(to right, #005aa7, #00c6fb);
       color: #003366;
+      /* REMOVIDO overflow: hidden para permitir scroll */
     }
 
     .container {
@@ -23,6 +23,7 @@
       width: 100vw;
       margin: 0;
       padding: 0;
+      /* REMOVIDO overflow: hidden se houver */
     }
 
     .sidebar {
@@ -80,10 +81,12 @@
 
     .main {
       flex: 1;
+      display: flex;
+      flex-direction: column;
       height: 100vh;
-      overflow: hidden;
       padding: 20px 5px 20px 5px;
       background-color: #82b4d7;
+      /* REMOVIDO overflow: hidden */
     }
 
     .topbar {
@@ -98,6 +101,7 @@
       top: 0;
       left: 0;
       z-index: 20;
+      height: 60px;
     }
 
     .topbar button {
@@ -106,13 +110,15 @@
       color: white;
       font-size: 24px;
       cursor: pointer;
+      margin-left: 10px;
     }
 
     .content {
-      margin-top: 60px;
+      margin-top: 60px; /* para compensar a topbar fixa */
       padding: 20px 20px 20px 0px;
       overflow-y: auto;
-      height: calc(100vh - 60px);
+      flex: 1; /* ocupa o espaço restante */
+      -webkit-overflow-scrolling: touch; /* scroll suave iOS */
     }
 
     .card {
